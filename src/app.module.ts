@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { Fxql } from './fxql/fxql.entity';
 import { HelperModule } from './helper/helper.module';
+import { APP_FILTER } from '@nestjs/core';
+import { HttpExceptionFilter } from './filter/http-exception.filter';
 
 @Module({
   imports: [
@@ -29,6 +31,12 @@ import { HelperModule } from './helper/helper.module';
     HelperModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}

@@ -1,6 +1,5 @@
 export const FXQL_URL = 'fxql-statements';
 export const FXQL_REQUIRED = 'FXQL statement is required';
-export const FXQL_STRING = 'FXQL statement must be a string';
 export const blockRegex =
   /([a-zA-Z]{3})-([a-zA-Z]{3})\s*\{\s*(?:BUY\s+(\S*))?\s*(?:SELL\s+(\S*))?\s*(?:CAP\s+(\S*))?\s*\}(?:\n|$)/g;
 export const MAX_PAIRS = 1000; // Maximum currency pairs allowed per request
