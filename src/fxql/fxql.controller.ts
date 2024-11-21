@@ -7,6 +7,12 @@ import { FxqlDto } from './dto/fxql.dto';
 export class FxqlController {
   constructor(private fxqlService: FxqlService) {}
 
+  /**
+   * Parse FXQL statements
+   *
+   * @remarks This operation allows you to parse FXQL statements
+   *
+   */
   @Post(FXQL_URL)
   async parseFxql(@Body() fxqlDto: FxqlDto) {
     const fxql = fxqlDto.FXQL;

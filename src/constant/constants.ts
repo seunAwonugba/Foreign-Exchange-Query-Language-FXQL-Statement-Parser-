@@ -11,3 +11,6 @@ export const MULTIPLE_NEW_LINE =
   'Invalid: Multiple newlines within a single FXQL statement';
 export const NO_SEPARATION =
   'Invalid: Multiple FXQL statements should be separated by a single newline character';
+export const APP_TITLE = 'Credit App';
+export const APP_DESCRIPTION =
+  'Credit App is a mobile lending app that requires wallet functionality. This is needed as borrowers need a wallet to receive the loans they have been granted and also send the money for repayments.';
