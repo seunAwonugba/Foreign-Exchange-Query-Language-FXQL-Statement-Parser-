@@ -28,6 +28,9 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
       entities: [Fxql],
       synchronize: true,
       autoLoadEntities: true,
+      // ssl: {
+      //   rejectUnauthorized: false,
+      // },
     }),
     HelperModule,
     //max 10 request per min
