@@ -71,7 +71,7 @@ export class HelperService {
   validateCurrency(currency: string) {
     if (!/^[A-Z]{3}$/.test(currency)) {
       throw new BadRequestException({
-        message: `Invalid: ${currency} should be ${currency.toUpperCase()}`,
+        message: `Invalid: '${currency}' should be '${currency.toUpperCase()}'`,
         code: `FXQL-${HttpStatus.BAD_REQUEST}`,
       });
     }
