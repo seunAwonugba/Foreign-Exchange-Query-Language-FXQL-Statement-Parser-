@@ -7,8 +7,9 @@ import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { Fxql } from './fxql/fxql.entity';
 import { HelperModule } from './helper/helper.module';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { HttpExceptionFilter } from './filter/http-exception.filter';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -29,6 +30,13 @@ import { HttpExceptionFilter } from './filter/http-exception.filter';
       autoLoadEntities: true,
     }),
     HelperModule,
+    //max 10 request per min
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 10,
+      },
+    ]),
   ],
   controllers: [AppController],
   providers: [
@@ -36,6 +44,10 @@ import { HttpExceptionFilter } from './filter/http-exception.filter';
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
     },
   ],
 })

@@ -8,7 +8,7 @@ import { HelperService } from '../helper/helper.service';
 export class FxqlService {
   constructor(
     @InjectRepository(Fxql)
-    private fxqlRepository: Repository<Fxql>,
+    private readonly fxqlRepository: Repository<Fxql>,
     private helperService: HelperService,
   ) {}
 
