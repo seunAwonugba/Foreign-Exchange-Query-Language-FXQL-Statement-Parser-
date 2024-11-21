@@ -29,14 +29,7 @@ async function bootstrap() {
     .setDescription(APP_DESCRIPTION)
     .setVersion('1.0')
     .addServer('http://localhost:8000', 'Local environment')
-    // .addServer(
-    //   'https://awonugba-seun-lendsqr-be-test.up.railway.app',
-    //   'Production environment',
-    // )
-    // .addBearerAuth(
-    //   { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-    //   'JWT',
-    // )
+    .addServer('http://34.207.152.250:8000', 'Production environment')
     .build();
 
   const options: SwaggerDocumentOptions = {
